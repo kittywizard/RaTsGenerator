@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap');
 
 body {
-    background-color: #ccc;
+    background-color:rgba(242,239,252,0.5);
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
 }
@@ -12,20 +13,22 @@ body {
     text-align: center;
 }
 
-#btn {
+button {
     border: unset;
-    background-color: #999;
-    color: black;
+    background-color: rgba(135,181,127,1);
+    color: #fff;
     font-weight: 700;
     font-size: 1rem;
     text-transform: uppercase;
     padding: 1rem;
     border-radius: 13px;
+    margin: 0.75em;
 }
 
-#btn:hover, 
-#btn:focus {
-    background-color: #fff;
+button:hover, 
+button:focus {
+    background-color: rgba(135,181,127, 0.3);
+    color:  rgba(135,181,127,1);
     cursor: pointer;
 }
 
@@ -33,20 +36,38 @@ body {
     margin: 2em;
 }
 
+.hide {
+    display: none;
+}
+
 /* typography */
 
 h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0.5em;
+    font-family: 'Viaoda Libre', cursive;
+    color: rgba(135,181,127,1);
+    font-size: 4rem;
+    margin: 0.2em;
 }
 
 footer {
-    font-size: 0.5rem;
-    margin-top: 0.5em;
+    font-size: 0.8rem;
 }
 
 .desc {
     margin-top: 0;
     font-size: 1em;
+}
+
+.footer-link {
+    color: green;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-link:hover, .footer-link:focus {
+    color: black;
+}
+
+.credits {
+    margin-top: 0.4em;
 }
