@@ -29,6 +29,10 @@ body {
     cursor: pointer;
 }
 
+.results {
+    margin: 2em;
+}
+
 /* typography */
 
 h1 {
