@@ -234,7 +234,7 @@
     {
         "flavor": "Rocky Road",
         "theme": "Scenic Bunnies",
-        "group": "Kitchen Sink",
+        "group": "Kitchen Sinkssssss",
         "color": "brown",
         "prompts": [
             "Big City",
@@ -267,16 +267,6 @@
             "Up in the Air",
             "Out in the Cold",
             "Left in the Dark"
-        ]
-    },
-
-    {
-        "flavor": "",
-        "theme": "",
-        "group": "",
-        "color": "",
-        "prompts": [
-
         ]
     }
 ]

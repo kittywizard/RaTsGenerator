@@ -71,3 +71,15 @@ footer {
 .credits {
     margin-top: 0.4em;
 }
+
+.flavor {
+    font-weight: 700;
+    font-size: 1.3rem;    
+}
+
+.prompt {
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 0.5em;
+    
+}
