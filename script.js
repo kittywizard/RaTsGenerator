@@ -3,20 +3,20 @@ const flavorMax = 2; //can probably get this automatically eventually?
 const resultDisplay = document.querySelector(".results");
 const desc = document.querySelector(".desc");
 const btn = document.getElementById('btn');
-const resetBtn = document.getElementById('reset');
+const resetBtn = document.getElementById('resetBtn');
 const list = document.getElementById('pick-a-rat');
 
-//let reset = () => location.reload(); //maybe not just reset but just run the generate function again?
+let reset = () => location.reload(); //maybe not just reset but just run the generate function again?
 
 btn.addEventListener('click', generateRaT);
-//resetBtn.addEventListener('click', reset);
+resetBtn.addEventListener('click', reset);
 
 async function generateRaT() {
 
     //hide the description and buttons
     //desc.classList.add('hide');
     //btn.classList.add('hide');
-    //resetBtn.classList.remove('hide');
+    resetBtn.classList.remove('hide');
 
     const promise = await fetch('local.json');
     const rats = await promise.json();
@@ -51,43 +51,43 @@ async function generateRaT() {
     flavorDiv.appendChild(promptDiv);
 }
 
-function getList(){
-    fetch('local.json')
-        .then(response => response.json())
-        .then(text => {
-            //grab the first group
-            let copy = text[0].group;
+// function getList(){
+//     fetch('local.json')
+//         .then(response => response.json())
+//         .then(text => {
+//             //grab the first group
+//             let copy = text[0].group;
 
-            // let option = document.createElement('div');
-            // option.innerText = copy;
-            // document.body.appendChild(option);
+//             // let option = document.createElement('div');
+//             // option.innerText = copy;
+//             // document.body.appendChild(option);
 
-            let groupArray = [];
+//             let groupArray = [];
 
-            //run through the entire array
-            text.forEach(flavor => {
-                groupArray.push(flavor.group);
-                console.log(groupArray);
+//             //run through the entire array
+//             text.forEach(flavor => {
+//                 groupArray.push(flavor.group);
+//                 console.log(groupArray);
 
-                //so we've got an array with everything in it. 
+//                 //so we've got an array with everything in it. 
 
-                // groupArray.forEach(element => {
-                //     if(element === copy) {
-                //         //this means that the current copy is the same as the array. keep going
-                //     } else {
-                //         copy = flavor.group;
-                //         console.log(`False, Copy is now: ${copy}`);
+//                 // groupArray.forEach(element => {
+//                 //     if(element === copy) {
+//                 //         //this means that the current copy is the same as the array. keep going
+//                 //     } else {
+//                 //         copy = flavor.group;
+//                 //         console.log(`False, Copy is now: ${copy}`);
 
-                //         let option = document.createElement('div');
-                //         option.innerText = copy;
-                //         document.body.appendChild(option);
-                //     }
-                // });
-            });
-        });
-}
+//                 //         let option = document.createElement('div');
+//                 //         option.innerText = copy;
+//                 //         document.body.appendChild(option);
+//                 //     }
+//                 // });
+//             });
+//         });
+// }
 
-getList();
+//getList();
 
 let randomNum = (min, max) =>  random = Math.floor((Math.random() * (max - min + 1)) + min); 
 
