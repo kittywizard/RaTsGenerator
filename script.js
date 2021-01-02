@@ -65,27 +65,18 @@ function getList(){
             flavorAmount.innerText = numberOfPrompts;
 
 
-            let groupArray = [];
+            let groupArray = ["All Bunnies"];
 
             //run through the entire array
             text.forEach(flavor => {
                 groupArray.push(flavor.theme);
-                console.log(groupArray);
+            });
 
-                //so we've got an array with everything in it. 
-
-                // groupArray.forEach(element => {
-                //     if(element === copy) {
-                //         //this means that the current copy is the same as the array. keep going
-                //     } else {
-                //         copy = flavor.group;
-                //         console.log(`False, Copy is now: ${copy}`);
-
-                //         let option = document.createElement('div');
-                //         option.innerText = copy;
-                //         document.body.appendChild(option);
-                //     }
-                // });
+            //this will take each element of the array and add it to the dropdown
+            groupArray.forEach(element => {
+                let option = document.createElement('option');
+                option.innerText = element;
+                list.appendChild(option);
             });
         });
 }
