@@ -14,9 +14,6 @@ resetBtn.addEventListener('click', reset);
 
 async function generateRaT() {
 
-    //hide the description and buttons
-    //desc.classList.add('hide');
-    //btn.classList.add('hide');
     resetBtn.classList.remove('hide');
 
     const promise = await fetch('local.json');
@@ -33,8 +30,8 @@ async function generateRaT() {
     let flavor = rats[randomFlavor].flavor;
     let prompt = rats[randomFlavor].prompts[randomPrompt];
     let promptNumber = randomPrompt + 1;
-    let theme = rats[randomFlavor].theme;
-    let color = rats[randomFlavor].color;
+    // let theme = rats[randomFlavor].theme;
+    // let color = rats[randomFlavor].color;
 
     //creating html elements for display
     let flavorDiv = document.createElement('div');
@@ -55,19 +52,13 @@ function getList(){
     fetch('local.json')
         .then(response => response.json())
         .then(text => {
-            // let option = document.createElement('div');
-            // option.innerText = copy;
-            // document.body.appendChild(option);
-
-            //generate the number of prompts
+            //generate number of prompts for display
             numberOfFlavors = text.length - 1;
             const numberOfPrompts = numberOfFlavors * 30
             flavorAmount.innerText = numberOfPrompts;
 
-
+            //add all the themes into an array so we can display them
             let groupArray = ["All Bunnies"];
-
-            //run through the entire array
             text.forEach(flavor => {
                 groupArray.push(flavor.theme);
             });
