@@ -1,7 +1,6 @@
 [{
         "flavor": "Vanilla",
         "theme": "Situational Bunnies",
-        "group": "Kitchen Sink",
         "color": "lightsalmon",
         "prompts": ["shopping",
             "The Sniffles",
@@ -78,7 +77,6 @@
     {
         "flavor": "Strawberry",
         "theme": "Prop Bunnies",
-        "group": "Kitchen Sink",
         "color": "pink",
         "prompts": [
             "Strawberries",
@@ -117,7 +115,6 @@
     {
         "flavor": "Butter Pecan",
         "theme": "Sensory Bunnies",
-        "group": "Kitchen Sink",
         "color": "yellow",
         "prompts": [
             "Hard",
@@ -156,7 +153,6 @@
     {
         "flavor": "Mint Chocolate Chip",
         "theme": "Descriptive Bunnies",
-        "group": "Kitchen Sink",
         "color": "mintgreen",
         "prompts": [
             "Shiny",
@@ -195,7 +191,6 @@
     {
         "flavor": "Cookies & Cream",
         "theme": "Action Bunnies",
-        "group": "Kitchen Sink",
         "color": "brown",
         "prompts": [
             "Run",
@@ -234,7 +229,6 @@
     {
         "flavor": "Rocky Road",
         "theme": "Scenic Bunnies",
-        "group": "Kitchen Sinkssssss",
         "color": "brown",
         "prompts": [
             "Big City",

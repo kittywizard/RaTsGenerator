@@ -1,12 +1,13 @@
-const flavorMax = 2; //can probably get this automatically eventually?
+let numberOfFlavors = 0;
 
 const resultDisplay = document.querySelector(".results");
 const desc = document.querySelector(".desc");
 const btn = document.getElementById('btn');
 const resetBtn = document.getElementById('resetBtn');
 const list = document.getElementById('pick-a-rat');
+const flavorAmount = document.querySelector(".flavors");
 
-let reset = () => location.reload(); //maybe not just reset but just run the generate function again?
+let reset = () => location.reload(); 
 
 btn.addEventListener('click', generateRaT);
 resetBtn.addEventListener('click', reset);
@@ -21,8 +22,7 @@ async function generateRaT() {
     const promise = await fetch('local.json');
     const rats = await promise.json();
 
-    //variable for the number of available flavors
-    const numberOfFlavors = rats.length - 1;
+    numberOfFlavors = rats.length - 1;
 
     //generate random number for the flavor
     let randomFlavor = randomNum(0, numberOfFlavors);
@@ -51,43 +51,46 @@ async function generateRaT() {
     flavorDiv.appendChild(promptDiv);
 }
 
-// function getList(){
-//     fetch('local.json')
-//         .then(response => response.json())
-//         .then(text => {
-//             //grab the first group
-//             let copy = text[0].group;
+function getList(){
+    fetch('local.json')
+        .then(response => response.json())
+        .then(text => {
+            // let option = document.createElement('div');
+            // option.innerText = copy;
+            // document.body.appendChild(option);
 
-//             // let option = document.createElement('div');
-//             // option.innerText = copy;
-//             // document.body.appendChild(option);
+            //generate the number of prompts
+            numberOfFlavors = text.length - 1;
+            const numberOfPrompts = numberOfFlavors * 30
+            flavorAmount.innerText = numberOfPrompts;
 
-//             let groupArray = [];
 
-//             //run through the entire array
-//             text.forEach(flavor => {
-//                 groupArray.push(flavor.group);
-//                 console.log(groupArray);
+            let groupArray = [];
 
-//                 //so we've got an array with everything in it. 
+            //run through the entire array
+            text.forEach(flavor => {
+                groupArray.push(flavor.theme);
+                console.log(groupArray);
 
-//                 // groupArray.forEach(element => {
-//                 //     if(element === copy) {
-//                 //         //this means that the current copy is the same as the array. keep going
-//                 //     } else {
-//                 //         copy = flavor.group;
-//                 //         console.log(`False, Copy is now: ${copy}`);
+                //so we've got an array with everything in it. 
 
-//                 //         let option = document.createElement('div');
-//                 //         option.innerText = copy;
-//                 //         document.body.appendChild(option);
-//                 //     }
-//                 // });
-//             });
-//         });
-// }
+                // groupArray.forEach(element => {
+                //     if(element === copy) {
+                //         //this means that the current copy is the same as the array. keep going
+                //     } else {
+                //         copy = flavor.group;
+                //         console.log(`False, Copy is now: ${copy}`);
 
-//getList();
+                //         let option = document.createElement('div');
+                //         option.innerText = copy;
+                //         document.body.appendChild(option);
+                //     }
+                // });
+            });
+        });
+}
+
+getList();
 
 let randomNum = (min, max) =>  random = Math.floor((Math.random() * (max - min + 1)) + min); 
 

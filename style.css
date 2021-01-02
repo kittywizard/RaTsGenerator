@@ -40,6 +40,7 @@ button:focus {
     display: none;
 }
 
+
 /* typography */
 
 h1 {
@@ -51,6 +52,8 @@ h1 {
 
 footer {
     font-size: 0.8rem;
+    background-color: rgba(135,181,127,0.1);
+    padding: 2em;
 }
 
 .desc {
@@ -58,7 +61,7 @@ footer {
     font-size: 1em;
 }
 
-.footer-link {
+.footer-link, .link {
     color: green;
     text-decoration: none;
     font-weight: 600;
