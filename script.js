@@ -70,6 +70,7 @@ function getList(){
             numberOfFlavors = text.length - 1;
             const numberOfPrompts = numberOfFlavors * 30
             flavorAmount.innerText = numberOfPrompts;
+            // ^^^ can we find a way to display this as a number, with appropriate commas? i.e. 1,500
 
             //add all the themes into an array so we can display them
             let groupArray = ["All Bunnies"];
