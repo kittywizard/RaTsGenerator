@@ -19,13 +19,16 @@ async function generateRaT() {
     const promise = await fetch('local.json');
     const rats = await promise.json();
 
-    numberOfFlavors = rats.length - 1;
+    //grab input from dropdown
+    // chooseFlavor(list.value);
 
-    //generate random number for the flavor
+    //generate number for flavor -- this may need to be changed depending on the dropdown logic
+    numberOfFlavors = rats.length - 1;
     let randomFlavor = randomNum(0, numberOfFlavors);
-    
-    //generate random number for the prompt
+
+    //random number for the prompt
     let randomPrompt = randomNum(0, 29);
+
 
     let flavor = rats[randomFlavor].flavor;
     let prompt = rats[randomFlavor].prompts[randomPrompt];
@@ -48,6 +51,17 @@ async function generateRaT() {
     flavorDiv.appendChild(promptDiv);
 }
 
+// function chooseFlavor(bunny) {
+//     console.log("this does nothing yet! :P");
+//     //we have the picked response from the dropdown. by default, it's everything
+
+//     //only pull the flavors that match that theme
+
+//     if() {
+
+//     }
+// }
+
 function getList(){
     fetch('local.json')
         .then(response => response.json())
@@ -69,6 +83,9 @@ function getList(){
                 option.innerText = element;
                 list.appendChild(option);
             });
+
+            //to do list
+                // need to get rid of the duplicates
         });
 }
 
