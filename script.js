@@ -12,6 +12,7 @@ let reset = () => location.reload();
 btn.addEventListener('click', generateRaT);
 resetBtn.addEventListener('click', reset);
 
+
 async function generateRaT() {
 
     resetBtn.classList.remove('hide');
@@ -19,16 +20,27 @@ async function generateRaT() {
     const promise = await fetch('local.json');
     const rats = await promise.json();
 
-    //grab input from dropdown
-    // chooseFlavor(list.value);
+    let selectedArr = [];
 
-    //generate number for flavor -- this may need to be changed depending on the dropdown logic
+    if(list.value != "All Bunnies"){
+        rats.forEach(flavor => {
+            if(flavor.theme == list.value){
+                selectedArr.push(flavor);
+                console.log(selectedArr);
+            }
+        });
+        getPrompts(selectedArr);
+    } else {
+        getPrompts(rats);
+    }
+}
+
+function getPrompts(rats) {
+
     numberOfFlavors = rats.length - 1;
     let randomFlavor = randomNum(0, numberOfFlavors);
 
-    //random number for the prompt
     let randomPrompt = randomNum(0, 29);
-
 
     let flavor = rats[randomFlavor].flavor;
     let prompt = rats[randomFlavor].prompts[randomPrompt];
@@ -51,42 +63,30 @@ async function generateRaT() {
     flavorDiv.appendChild(promptDiv);
 }
 
-// function chooseFlavor(bunny) {
-//     console.log("this does nothing yet! :P");
-//     //we have the picked response from the dropdown. by default, it's everything
-
-//     //only pull the flavors that match that theme
-
-//     if() {
-
-//     }
-// }
-
 function getList(){
     fetch('local.json')
         .then(response => response.json())
         .then(text => {
             //generate number of prompts for display
             numberOfFlavors = text.length - 1;
-            const numberOfPrompts = numberOfFlavors * 30
-            flavorAmount.innerText = numberOfPrompts;
-            // ^^^ can we find a way to display this as a number, with appropriate commas? i.e. 1,500
+            const numberOfPrompts = numberOfFlavors * 30;
+    
+            flavorAmount.innerText = numberOfPrompts.toLocaleString();
 
             //add all the themes into an array so we can display them
             let groupArray = ["All Bunnies"];
+
             text.forEach(flavor => {
                 groupArray.push(flavor.theme);
             });
+            let allBunnies = new Set(groupArray);
 
-            //this will take each element of the array and add it to the dropdown
-            groupArray.forEach(element => {
+            allBunnies.forEach(element => {
                 let option = document.createElement('option');
                 option.innerText = element;
                 list.appendChild(option);
             });
 
-            //to do list
-                // need to get rid of the duplicates
         });
 }
 

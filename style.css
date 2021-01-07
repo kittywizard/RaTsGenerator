@@ -40,6 +40,11 @@ button:focus {
     display: none;
 }
 
+#pickRat {
+    display: flex;
+    flex-direction: row;
+}
+
 
 /* typography */
 
@@ -77,7 +82,8 @@ footer {
 
 .flavor {
     font-weight: 700;
-    font-size: 1.3rem;    
+    font-size: 1.3rem; 
+    margin-bottom: 0.5em;   
 }
 
 .prompt {
