@@ -26,7 +26,6 @@ async function generateRaT() {
         rats.forEach(flavor => {
             if(flavor.theme == list.value){
                 selectedArr.push(flavor);
-                console.log(selectedArr);
             }
         });
         getPrompts(selectedArr);
