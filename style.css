@@ -19,10 +19,12 @@ button {
     color: #fff;
     font-weight: 700;
     font-size: 1rem;
+    letter-spacing: 1px;
     text-transform: uppercase;
     padding: 1rem;
     border-radius: 13px;
     margin: 0.75em;
+    font-family: 'Raleway', sans-serif;
 }
 
 button:hover, 
@@ -30,6 +32,17 @@ button:focus {
     background-color: rgba(135,181,127, 0.3);
     color:  rgba(135,181,127,1);
     cursor: pointer;
+}
+
+.sm-btn {
+    border: unset;
+    background-color: rgba(135,181,127,1);
+    color: #fff;
+    font-weight: 300;
+    text-transform: none;
+    padding: 0.4em;
+    font-size: 0.7rem;
+    border-radius: 5px;
 }
 
 .results {
@@ -50,6 +63,15 @@ button:focus {
     letter-spacing: 1px;
 }
 
+.topping-select {
+    font-size: 0.8rem;
+    background-color: rgba(135,181,127, 0.3);
+    border-radius: 10px;
+
+    padding: 0.5em;
+    margin: 0.7em auto;
+    width: 50%;
+}
 
 
 /* typography */
