@@ -40,10 +40,16 @@ button:focus {
     display: none;
 }
 
-#pickRat {
-    display: flex;
-    flex-direction: row;
+#pick-a-rat {
+    padding: 0.4em;
+    border: unset;
+    border-radius: 5px;
+    background-color: rgba(135,181,127, 0.3);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
+
 
 
 /* typography */
