@@ -34,6 +34,50 @@ async function generateRaT() {
     }
 }
 
+async function getToppings(div){
+    const toppingPromise = await fetch('toppings.json');
+    const toppingContent = await toppingPromise.json();
+
+    //random topping generating
+    // let randomTopping = randomNum(0, toppingContent.length - 1);
+    // let toppingChoice = toppingContent[randomTopping].topping;
+    // let claimTopping = toppingContent[randomTopping].claim;
+
+    // //displaying random topping
+    // let toppingDiv = document.createElement("div");
+    // toppingDiv.classList.add('topping-select');
+    // toppingDiv.innerText = `Your topping is: ${toppingChoice}. ${claimTopping}`;
+    // div.appendChild(toppingDiv);
+
+    //will create list. maybe this comes first?
+    console.log(div);
+    createToppingList(toppingContent, div);
+}
+
+function createToppingList(toppings, div) {
+    let toppingList = document.createElement('select');
+    toppingList.classList.add('dropdown');
+    let containerDiv = document.createElement('div');
+
+    let toppingButton = document.createElement('button');
+    toppingButton.innerText = "Topping?";
+    toppingButton.classList.add('sm-btn');
+
+    toppings.forEach(topping => {
+        let toppingOption = document.createElement('option');
+        toppingOption.innerText = topping.topping;
+        toppingList.appendChild(toppingOption);
+    });
+
+    //containerDiv.appendChild(toppingList);
+    containerDiv.appendChild(randomButton);
+    div.appendChild(containerDiv);
+    toppingButton.addEventListener('click', function() {
+
+    });
+
+}
+
 function getPrompts(rats) {
 
     numberOfFlavors = rats.length - 1;
@@ -60,6 +104,8 @@ function getPrompts(rats) {
     promptDiv.innerText = `#${promptNumber}: ${prompt}`;
 
     flavorDiv.appendChild(promptDiv);
+
+    getToppings(promptDiv);
 }
 
 function getList(){
@@ -96,7 +142,7 @@ let randomNum = (min, max) =>  random = Math.floor((Math.random() * (max - min +
 //json template
 // {
 //     "flavor": "",
-//     "theme": "",
+//     "theme": "Odds & Ends",
 //     "color": "",
 //     "prompts": [
         
