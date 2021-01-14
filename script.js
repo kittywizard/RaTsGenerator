@@ -38,7 +38,42 @@ async function getToppings(div){
     const toppingPromise = await fetch('toppings.json');
     const toppingContent = await toppingPromise.json();
 
-    //random topping generating
+    //create button
+    let toppingButton = document.createElement('button');
+    toppingButton.innerText = "Topping?";
+    toppingButton.classList.add('sm-btn');
+
+    //create dropdown list
+    let toppingList = document.createElement('select');
+    toppingList.classList.add('dropdown');
+    let containerDiv = document.createElement('div');
+
+    //gather and add all toppings to the dropdown
+    toppingContent.forEach(topping => {
+        let toppingOption = document.createElement('option');
+        toppingOption.innerText = topping.topping;
+        toppingList.appendChild(toppingOption);
+    });
+
+    //append the button first
+    containerDiv.appendChild(toppingButton);
+    div.appendChild(containerDiv);
+
+    //check for user wanting toppings
+    toppingButton.addEventListener('click', () => {
+        //toppingButton.classList.add('hide');
+       
+        //display topping list - figure out how to make this display on one line. flex?
+        div.appendChild(toppingList);  
+
+        //generate random topping button
+    });
+
+    //createToppingList(toppingContent, div);
+}
+
+function createRandomTopping(toppings, div) {
+    
     // let randomTopping = randomNum(0, toppingContent.length - 1);
     // let toppingChoice = toppingContent[randomTopping].topping;
     // let claimTopping = toppingContent[randomTopping].claim;
@@ -49,30 +84,7 @@ async function getToppings(div){
     // toppingDiv.innerText = `Your topping is: ${toppingChoice}. ${claimTopping}`;
     // div.appendChild(toppingDiv);
 
-    createToppingList(toppingContent, div);
-}
-
-function createToppingList(toppings, div) {
-    let toppingList = document.createElement('select');
-    toppingList.classList.add('dropdown');
-    let containerDiv = document.createElement('div');
-
-    let toppingButton = document.createElement('button');
-    toppingButton.innerText = "Topping?";
-    toppingButton.classList.add('sm-btn');
-
-    toppings.forEach(topping => {
-        let toppingOption = document.createElement('option');
-        toppingOption.innerText = topping.topping;
-        toppingList.appendChild(toppingOption);
-    });
-
     //containerDiv.appendChild(toppingList);
-    containerDiv.appendChild(toppingButton);
-    div.appendChild(containerDiv);
-    toppingButton.addEventListener('click', function() {
-        //
-    });
 
 }
 
