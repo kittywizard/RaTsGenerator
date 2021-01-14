@@ -49,8 +49,6 @@ async function getToppings(div){
     // toppingDiv.innerText = `Your topping is: ${toppingChoice}. ${claimTopping}`;
     // div.appendChild(toppingDiv);
 
-    //will create list. maybe this comes first?
-    console.log(div);
     createToppingList(toppingContent, div);
 }
 
@@ -70,10 +68,10 @@ function createToppingList(toppings, div) {
     });
 
     //containerDiv.appendChild(toppingList);
-    containerDiv.appendChild(randomButton);
+    containerDiv.appendChild(toppingButton);
     div.appendChild(containerDiv);
     toppingButton.addEventListener('click', function() {
-
+        //
     });
 
 }
