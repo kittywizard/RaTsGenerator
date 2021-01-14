@@ -43,6 +43,11 @@ async function getToppings(div){
     toppingButton.innerText = "Topping?";
     toppingButton.classList.add('sm-btn');
 
+    //create random button
+    let randomButton = document.createElement('button');
+    randomButton.innerText = "Random Topping";
+    randomButton.classList.add('sm-btn');
+
     //create dropdown list
     let toppingList = document.createElement('select');
     toppingList.classList.add('dropdown');
@@ -61,32 +66,24 @@ async function getToppings(div){
 
     //check for user wanting toppings
     toppingButton.addEventListener('click', () => {
-        //toppingButton.classList.add('hide');
-       
-        //display topping list - figure out how to make this display on one line. flex?
-        div.appendChild(toppingList);  
-
-        //generate random topping button
+        toppingButton.classList.add('hide');
+        div.appendChild(toppingList); 
+        div.appendChild(randomButton); 
     });
 
-    //createToppingList(toppingContent, div);
-}
-
-function createRandomTopping(toppings, div) {
+    randomButton.addEventListener('click', () => {
+        let randomTopping = randomNum(0, toppingContent.length - 1);
+        let toppingChoice = toppingContent[randomTopping].topping;
+        let claimTopping = toppingContent[randomTopping].claim;
     
-    // let randomTopping = randomNum(0, toppingContent.length - 1);
-    // let toppingChoice = toppingContent[randomTopping].topping;
-    // let claimTopping = toppingContent[randomTopping].claim;
-
-    // //displaying random topping
-    // let toppingDiv = document.createElement("div");
-    // toppingDiv.classList.add('topping-select');
-    // toppingDiv.innerText = `Your topping is: ${toppingChoice}. ${claimTopping}`;
-    // div.appendChild(toppingDiv);
-
-    //containerDiv.appendChild(toppingList);
-
+        // //displaying random topping
+        let toppingDiv = document.createElement("div");
+        toppingDiv.classList.add('topping-select');
+        toppingDiv.innerText = `Your topping is: ${toppingChoice}. ${claimTopping}`;
+        div.appendChild(toppingDiv);
+    });
 }
+
 
 function getPrompts(rats) {
 
