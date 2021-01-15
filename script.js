@@ -7,11 +7,16 @@ const resetBtn = document.getElementById('resetBtn');
 const list = document.getElementById('pick-a-rat');
 const flavorAmount = document.querySelector(".flavors");
 
+//create all the topping related buttons and list
+const toppingButton = createButton("Topping?");
+const randomButton = createButton("Random Topping?");
+const submitButton = createButton("Ok.");
+let toppingList = document.createElement('select');
+
 let reset = () => location.reload(); 
 
 btn.addEventListener('click', generateRaT);
 resetBtn.addEventListener('click', reset);
-
 
 async function generateRaT() {
 
@@ -32,6 +37,81 @@ async function generateRaT() {
     } else {
         getPrompts(rats);
     }
+}
+
+async function getToppings(div){
+    const toppingPromise = await fetch('toppings.json');
+    const toppingContent = await toppingPromise.json();
+
+    //create dropdown list
+    toppingList.classList.add('dropdown');
+    let containerDiv = document.createElement('div');
+
+    containerDiv.appendChild(toppingButton);
+    div.appendChild(containerDiv);
+
+    //gather and add all toppings to the dropdown
+    toppingContent.forEach(topping => {
+        let toppingOption = document.createElement('option');
+        toppingOption.innerText = topping.topping;
+        toppingList.appendChild(toppingOption);
+    });
+
+    //check for user wanting toppings
+    toppingButton.addEventListener('click', () => {
+        toppingButton.classList.add('hide');
+        div.appendChild(toppingList); 
+        div.appendChild(submitButton);
+        div.appendChild(randomButton); 
+    });
+
+    //if user picks one from the list
+    submitButton.addEventListener('click', () => {
+
+        //this will probably need to be condensed since it's repetitive in both instances
+        let toppingDiv = document.createElement("div");
+        toppingDiv.classList.add('topping-select');
+
+        //need to grab the actual number of the topping
+        let toppingDesc = toppingContent[0].claim;
+
+        toppingDiv.innerText = `Your topping is: ${toppingList.value}. ${toppingDesc}`;
+        div.appendChild(toppingDiv);
+
+        hideButtons();
+    });
+
+
+    //random button is clicked instead
+    randomButton.addEventListener('click', () => {
+        let randomTopping = randomNum(0, toppingContent.length - 1);
+        let toppingChoice = toppingContent[randomTopping].topping;
+        let claimTopping = toppingContent[randomTopping].claim;
+    
+        // //displaying random topping
+        let toppingDiv = document.createElement("div");
+        toppingDiv.classList.add('topping-select');
+        toppingDiv.innerText = `Your topping is: ${toppingChoice}. ${claimTopping}`;
+        div.appendChild(toppingDiv);
+
+        hideButtons(); 
+    });
+}
+
+function hideButtons() {
+
+    toppingButton.classList.add('hide');
+    randomButton.classList.add('hide');
+    submitButton.classList.add('hide');
+    toppingList.classList.add('hide');
+}
+
+
+function createButton(copy) {
+        let btn = document.createElement('button');
+        btn.innerText = copy;
+        btn.classList.add('sm-btn');
+        return btn;
 }
 
 function getPrompts(rats) {
@@ -60,6 +140,8 @@ function getPrompts(rats) {
     promptDiv.innerText = `#${promptNumber}: ${prompt}`;
 
     flavorDiv.appendChild(promptDiv);
+
+    getToppings(promptDiv);
 }
 
 function getList(){
@@ -96,7 +178,7 @@ let randomNum = (min, max) =>  random = Math.floor((Math.random() * (max - min +
 //json template
 // {
 //     "flavor": "",
-//     "theme": "",
+//     "theme": "Odds & Ends",
 //     "color": "",
 //     "prompts": [
         
