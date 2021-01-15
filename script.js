@@ -7,11 +7,16 @@ const resetBtn = document.getElementById('resetBtn');
 const list = document.getElementById('pick-a-rat');
 const flavorAmount = document.querySelector(".flavors");
 
+//create all the topping related buttons and list
+const toppingButton = createButton("Topping?");
+const randomButton = createButton("Random Topping?");
+const submitButton = createButton("Ok.");
+let toppingList = document.createElement('select');
+
 let reset = () => location.reload(); 
 
 btn.addEventListener('click', generateRaT);
 resetBtn.addEventListener('click', reset);
-
 
 async function generateRaT() {
 
@@ -38,13 +43,7 @@ async function getToppings(div){
     const toppingPromise = await fetch('toppings.json');
     const toppingContent = await toppingPromise.json();
 
-    //create buttons
-    const toppingButton = createButton("Topping?");
-    const randomButton = createButton("Random Topping?");
-    const submitButton = createButton("Ok.");
-
     //create dropdown list
-    let toppingList = document.createElement('select');
     toppingList.classList.add('dropdown');
     let containerDiv = document.createElement('div');
 
@@ -79,7 +78,7 @@ async function getToppings(div){
         toppingDiv.innerText = `Your topping is: ${toppingList.value}. ${toppingDesc}`;
         div.appendChild(toppingDiv);
 
-        //hide buttons  probably seperate function?
+        hideButtons();
     });
 
 
@@ -95,9 +94,18 @@ async function getToppings(div){
         toppingDiv.innerText = `Your topping is: ${toppingChoice}. ${claimTopping}`;
         div.appendChild(toppingDiv);
 
-        //hide buttons
+        hideButtons(); 
     });
 }
+
+function hideButtons() {
+
+    toppingButton.classList.add('hide');
+    randomButton.classList.add('hide');
+    submitButton.classList.add('hide');
+    toppingList.classList.add('hide');
+}
+
 
 function createButton(copy) {
         let btn = document.createElement('button');
