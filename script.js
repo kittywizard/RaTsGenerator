@@ -13,6 +13,12 @@ const randomButton = createButton("Random Topping?");
 const submitButton = createButton("Ok.");
 let toppingList = document.createElement('select');
 
+/*
+    need to fix:
+    topping buttons not showing up correctly anymore
+
+*/
+
 let reset = () => location.reload(); 
 
 btn.addEventListener('click', generateRaT);
@@ -106,7 +112,6 @@ function hideButtons() {
     toppingList.classList.add('hide');
 }
 
-
 function createButton(copy) {
         let btn = document.createElement('button');
         btn.innerText = copy;
@@ -124,21 +129,16 @@ function getPrompts(rats) {
     let flavor = rats[randomFlavor].flavor;
     let prompt = rats[randomFlavor].prompts[randomPrompt];
     let promptNumber = randomPrompt + 1;
-    // let theme = rats[randomFlavor].theme;
-    // let color = rats[randomFlavor].color;
 
     //creating html elements for display
     let flavorDiv = document.createElement('div');
     flavorDiv.classList.add('flavor');
-    //flavorDiv.style.color = color;
     flavorDiv.innerText = `Flavor: ${flavor}`;
     resultDisplay.appendChild(flavorDiv);
 
     let promptDiv = document.createElement('div');
     promptDiv.classList.add('prompt');
-    //promptDiv.style.color = color;
     promptDiv.innerText = `#${promptNumber}: ${prompt}`;
-
     flavorDiv.appendChild(promptDiv);
 
     getToppings(promptDiv);
