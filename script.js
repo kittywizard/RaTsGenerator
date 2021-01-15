@@ -13,6 +13,12 @@ const randomButton = createButton("Random Topping?");
 const submitButton = createButton("Ok.");
 let toppingList = document.createElement('select');
 
+/* 
+    to do list:
+    need to fix buttons. topping buttons not working properly.
+    classlist 'hide' is breaking things
+
+*/
 let reset = () => location.reload(); 
 
 btn.addEventListener('click', generateRaT);
