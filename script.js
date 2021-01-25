@@ -17,7 +17,8 @@ let toppingList = document.createElement('select');
     to do list:
     need to fix buttons. topping buttons not working properly.
     classlist 'hide' is breaking things
-
+    topping button is only showing up on the latest RaT, not all of them like before
+    wrap async functions in try/catch for error handling
 */
 let reset = () => location.reload(); 
 
@@ -26,6 +27,7 @@ resetBtn.addEventListener('click', reset);
 
 async function generateRaT() {
 
+    //wrap everything in try/ catch blocks
     resetBtn.classList.remove('hide');
 
     const promise = await fetch('local.json');
