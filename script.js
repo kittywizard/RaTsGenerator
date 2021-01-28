@@ -20,6 +20,14 @@ let toppingList = document.createElement('select');
     topping button is only showing up on the latest RaT, not all of them like before
     wrap async functions in try/catch for error handling
 */
+
+/*
+    the button only displays on the last generated RaT. 
+    once clicked, it applies to ALL RaTs, despite there only being one button
+    random generates a random topping for each, and displays on each RaT
+    once clicked, the button never reappears on subsequent RaTs
+*/
+
 let reset = () => location.reload(); 
 
 btn.addEventListener('click', generateRaT);
@@ -47,64 +55,64 @@ async function generateRaT() {
     }
 }
 
-// async function getToppings(div){
-//     const toppingPromise = await fetch('toppings.json');
-//     const toppingContent = await toppingPromise.json();
+async function getToppings(div){
+    const toppingPromise = await fetch('toppings.json');
+    const toppingContent = await toppingPromise.json();
 
-//     //create dropdown list
-//     toppingList.classList.add('dropdown');
-//     let containerDiv = document.createElement('div');
+    //create dropdown list
+    toppingList.classList.add('dropdown');
+    let containerDiv = document.createElement('div');
 
-//     containerDiv.appendChild(toppingButton);
-//     div.appendChild(containerDiv);
+    containerDiv.appendChild(toppingButton);
+    div.appendChild(containerDiv);
 
-//     //gather and add all toppings to the dropdown
-//     toppingContent.forEach(topping => {
-//         let toppingOption = document.createElement('option');
-//         toppingOption.innerText = topping.topping;
-//         toppingList.appendChild(toppingOption);
-//     });
+    //gather and add all toppings to the dropdown
+    toppingContent.forEach(topping => {
+        let toppingOption = document.createElement('option');
+        toppingOption.innerText = topping.topping;
+        toppingList.appendChild(toppingOption);
+    });
 
-//     //check for user wanting toppings
-//     toppingButton.addEventListener('click', () => {
-//         toppingButton.classList.add('hide');
-//         div.appendChild(toppingList); 
-//         div.appendChild(submitButton);
-//         div.appendChild(randomButton); 
-//     });
+    //check for user wanting toppings
+    toppingButton.addEventListener('click', () => {
+        toppingButton.classList.add('hide');
+        div.appendChild(toppingList); 
+        div.appendChild(submitButton);
+        div.appendChild(randomButton); 
+    });
 
-//     //if user picks one from the list
-//     submitButton.addEventListener('click', () => {
+    //if user picks one from the list
+    submitButton.addEventListener('click', () => {
 
-//         //this will probably need to be condensed since it's repetitive in both instances
-//         let toppingDiv = document.createElement("div");
-//         toppingDiv.classList.add('topping-select');
+        //this will probably need to be condensed since it's repetitive in both instances
+        let toppingDiv = document.createElement("div");
+        toppingDiv.classList.add('topping-select');
 
-//         //need to grab the actual number of the topping
-//         let toppingDesc = toppingContent[0].claim;
+        //need to grab the actual number of the topping
+        let toppingDesc = toppingContent[0].claim;
 
-//         toppingDiv.innerText = `Your topping is: ${toppingList.value}. ${toppingDesc}`;
-//         div.appendChild(toppingDiv);
+        toppingDiv.innerText = `Your topping is: ${toppingList.value}. ${toppingDesc}`;
+        div.appendChild(toppingDiv);
 
-//         hideButtons();
-//     });
+        hideButtons();
+    });
 
 
-//     //random button is clicked instead
-//     randomButton.addEventListener('click', () => {
-//         let randomTopping = randomNum(0, toppingContent.length - 1);
-//         let toppingChoice = toppingContent[randomTopping].topping;
-//         let claimTopping = toppingContent[randomTopping].claim;
+    //random button is clicked instead
+    randomButton.addEventListener('click', () => {
+        let randomTopping = randomNum(0, toppingContent.length - 1);
+        let toppingChoice = toppingContent[randomTopping].topping;
+        let claimTopping = toppingContent[randomTopping].claim;
     
-//         // //displaying random topping
-//         let toppingDiv = document.createElement("div");
-//         toppingDiv.classList.add('topping-select');
-//         toppingDiv.innerText = `Your topping is: ${toppingChoice}. ${claimTopping}`;
-//         div.appendChild(toppingDiv);
+        // //displaying random topping
+        let toppingDiv = document.createElement("div");
+        toppingDiv.classList.add('topping-select');
+        toppingDiv.innerText = `Your topping is: ${toppingChoice}. ${claimTopping}`;
+        div.appendChild(toppingDiv);
 
-//         hideButtons(); 
-//     });
-// }
+        hideButtons(); 
+    });
+}
 
 function hideButtons() {
 
