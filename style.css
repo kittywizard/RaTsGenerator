@@ -118,3 +118,10 @@ footer {
     font-weight: 300;
     padding: 0.5em;
 }
+
+/* Temporary Classes */
+
+.romance {
+    font-weight:700;
+    color :deeppink;
+}

@@ -4662,11 +4662,93 @@
             "Like A Son/Daughter To Me",
             "A Long Way From Home"
         ]
+    },
+
+    {
+        "flavor": "Lemon-Lime Sorbet",
+        "theme": "Romantic Bunnies",
+        "color": "",
+        "prompts": [
+            "Our Little Secret",
+            "Public Place",
+            "Caught In The Act",
+            "Under The Stars",
+            "Sweet Nothings",
+            "Against Better Judgement",
+            "Fun With Food (Or Props)",
+            "Role Reversal",
+            "In Your Dreams",
+            "What You Do To Me",
+            "A Night To Remember",
+            "Stolen Moments"
+        ]
+    },
+
+    {
+        "flavor": "Lemon Chiffon",
+        "theme": "Romantic Bunnies",
+        "color": "",
+        "prompts": [
+            "Close Quarters",
+            "Roll In The Hay",
+            "Intoxication",
+            "My, It's Hot In Here",
+            "All Tied Up",
+            "The First Time",
+            "Your Eyes",
+            "The Back Seat",
+            "Strip Tease",
+            "One Night Stand",
+            "Keeping Each Other Warm",
+            "All Night Long"
+        ]
+    },
+
+    {
+        "flavor": "Pink Lemonade",
+        "theme": "Romantic Bunnies",
+        "color": "",
+        "prompts": [
+            "Naughty But Nice",
+            "Hard To Get",
+            "Fooling Around",
+            "On The Cheek",
+            "Taking It Slow",
+            "Come A Little Bit Closer",
+            "In Your Arms",
+            "Tender Loving Care",
+            "Double Entandre",
+            "Tangled Up In You",
+            "Slip Into Something More Comfortable",
+            "Between The Sheets",
+            "Sleeping Beside You",
+            "Notch On The Bedpost",
+            "Kiss & Make Up"
+        ]
+    },
+
+    {
+        "flavor": "Key Lime",
+        "theme": "Romantic Bunnies",
+        "color": "",
+        "prompts": [
+            "Tall, Dark, And Handsome",
+            "Blonde Bombshell",
+            "The Girl/Boy Next Door",
+            "Mr. Right",
+            "(Wo)Man Of My Dreams",
+            "Last (Wo)Man On Earth",
+            "Star Crossed Lovers",
+            "The Other (Wo)Man",
+            "Cassanova",
+            "Sugar Daddy",
+            "Arm Candy",
+            "Friends With Benefits",
+            "Old Flame",
+            "More Fish In The Sea",
+            "Soul Mate"
+        ]
     }
-
-
-
-
 
 
 ]
