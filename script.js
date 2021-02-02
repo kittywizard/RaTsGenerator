@@ -20,10 +20,8 @@ let toppingList = document.createElement('select');
 */
 
 /*
-    the button only displays on the last generated RaT. 
-    once clicked, it applies to ALL RaTs, despite there only being one button
-    once clicked, the button never reappears on subsequent RaTs
-    it hides on the current div.
+   for some reason, the div w/ the button gets cleared when creating a new div w/ toppings and prompts
+
 */
 
 let reset = () => location.reload();
@@ -58,51 +56,51 @@ async function generateRaT() {
 
 }
 
-async function showToppings(div) {
-    try {
-        const toppingPromise = await fetch('toppings.json');
-        const toppingContent = await toppingPromise.json();
+// async function showToppings(div) {
+//     try {
+//         const toppingPromise = await fetch('toppings.json');
+//         const toppingContent = await toppingPromise.json();
 
-        //creating drop down list
-        toppingList.classList.add('dropdown');
-        let containerDiv = document.createElement('div');
+//         //creating drop down list
+//         toppingList.classList.add('dropdown');
+//         let containerDiv = document.createElement('div');
 
-        containerDiv.appendChild(toppingButton);
-        div.appendChild(containerDiv);
+//         containerDiv.appendChild(toppingButton);
+//         div.appendChild(containerDiv);
 
-        //gather and add all toppings to the dropdown
-        toppingContent.forEach(topping => {
-            let toppingOption = document.createElement('option');
-            toppingOption.innerText = topping.topping;
-            toppingList.appendChild(toppingOption);
-        });
+//         //gather and add all toppings to the dropdown
+//         toppingContent.forEach(topping => {
+//             let toppingOption = document.createElement('option');
+//             toppingOption.innerText = topping.topping;
+//             toppingList.appendChild(toppingOption);
+//         });
 
-        toppingButton.addEventListener('click', () => {
-            toppingButton.classList.add('hide');
-            div.appendChild(toppingList); 
-            div.appendChild(submitButton); 
-        });
+//         toppingButton.addEventListener('click', () => {
+//             toppingButton.classList.add('hide');
+//             div.appendChild(toppingList); 
+//             div.appendChild(submitButton); 
+//         });
 
-        submitButton.addEventListener('click', () =>{
+//         submitButton.addEventListener('click', () =>{
 
-            let toppingDiv = document.createElement("div");
-            toppingDiv.classList.add('topping-select');
+//             let toppingDiv = document.createElement("div");
+//             toppingDiv.classList.add('topping-select');
 
-            //need to grab the actual number of the topping
-            let toppingDesc = toppingContent[0].claim;
+//             //need to grab the actual number of the topping
+//             let toppingDesc = toppingContent[0].claim;
 
-            toppingDiv.innerText = `Your topping is: ${toppingList.value}. ${toppingDesc}`;
-            div.appendChild(toppingDiv);
+//             toppingDiv.innerText = `Your topping is: ${toppingList.value}. ${toppingDesc}`;
+//             div.appendChild(toppingDiv);
 
-            hideButtons();
-        });
+//             hideButtons();
+//         });
 
 
-    } catch (err) {
-        console.log(err);
-    }
+//     } catch (err) {
+//         console.log(err);
+//     }
 
-}
+// }
 
 function hideButtons() {
 
@@ -146,7 +144,7 @@ function getPrompts(rats) {
 
     flavorDiv.appendChild(promptDiv);
 
-    showToppings(promptDiv);
+    //showToppings(promptDiv);
 }
 
 function getList() {
