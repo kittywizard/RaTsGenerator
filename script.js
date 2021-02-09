@@ -48,7 +48,10 @@ async function generateRaT() {
 
     try {
         resetBtn.classList.remove('hide');
-        toppingBtn.classList.remove('hide');
+        // if(){
+        //     //need to check status of toppingBtn
+        //     toppingBtn.classList.remove('hide');
+        // }
 
         const promise = await fetch('local.json');
         const rats = await promise.json();
@@ -100,11 +103,43 @@ function getPrompts(rats) {
 
     flavorDiv.appendChild(promptDiv);
 
-    //showToppings(promptDiv);
+}
+   
+async function toppingTime() {
+    toppingBtn.classList.add('hide');
+
+    try {
+        const toppingPromise = await fetch('toppings.json');
+        const toppingContent = await toppingPromise.json();
+
+        //creating drop down list
+        toppingList.classList.add('dropdown');
+        let containerDiv = document.createElement('div');
+
+        //gather and add all toppings to the dropdown
+        toppingContent.forEach(topping => {
+            let toppingOption = document.createElement('option');
+            toppingOption.innerText = topping.topping;
+            toppingList.appendChild(toppingOption);
+        });
+
+        //need to add in a div w/ dropdown list of toppings
+        containerDiv.appendChild(toppingList);
+        containerDiv.appendChild(createButton());
+
+        resultDisplay.appendChild(containerDiv);
+
+    } catch (err) {
+        console.log(err);
+    }
 }
 
-function toppingTime() {
-    console.log("topping!");
+function createButton() {
+            
+    let btn = document.createElement('button');
+    btn.innerText = "Ok";
+    btn.classList.add('sm-btn');
+    return btn;
 }
 
 let randomNum = (min, max) => random = Math.floor((Math.random() * (max - min + 1)) + min);

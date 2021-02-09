@@ -146,7 +146,7 @@ footer {
 
     .results {
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-evenly;
         flex-wrap: wrap;
         align-items: baseline;
         align-content: center;
