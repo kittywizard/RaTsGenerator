@@ -2,15 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap');
 
 body {
-    background-color:rgba(242,239,252,0.5);
+    background-image: linear-gradient(rgba(135,181,127, 0.3), rgba(135,181,127,0.7));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* add in a background image */
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
+    margin: 0; 
 }
 
 .container {
     width: 70%;
     margin: 0 auto;
     text-align: center;
+    background-color:rgba(242,239,252,0.7);
+    padding: 0.5em;
 }
 
 button {
@@ -22,7 +28,7 @@ button {
     letter-spacing: 1px;
     text-transform: uppercase;
     padding: 1rem;
-    border-radius: 13px;
+    border-radius: 10px;
     margin: 0.75em;
     font-family: 'Raleway', sans-serif;
 }
@@ -46,6 +52,10 @@ button:focus {
 
 .results {
     margin: 2em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .hide {
@@ -83,9 +93,8 @@ h1 {
 }
 
 footer {
-    font-size: 0.8rem;
-    background-color: rgba(135,181,127,0.1);
-    padding: 2em;
+    font-size: 0.9rem;
+    padding: 1em;
 }
 
 .desc {
@@ -94,13 +103,13 @@ footer {
 }
 
 .footer-link, .link {
-    color: green;
+    color: rgba(135,181,127,1); /* need a darker green or other color here */
     text-decoration: none;
     font-weight: 600;
 }
 
-.footer-link:hover, .footer-link:focus {
-    color: black;
+.footer-link:hover, .footer-link:focus, .link:hover {
+    color: rgb(40, 53, 37); /* new color */
 }
 
 .credits {
@@ -110,7 +119,10 @@ footer {
 .flavor {
     font-weight: 700;
     font-size: 1.3rem; 
-    margin-bottom: 0.5em;   
+    margin-bottom: 0.5em; 
+    padding: 1em;  
+    background-color: rgba(135,181,127,0.2);
+    border-radius: 10px;
 }
 
 .prompt {
@@ -124,4 +136,19 @@ footer {
 .romance {
     font-weight:700;
     color :deeppink;
+}
+
+/* media queries */
+
+
+@media (min-width: 675px) {
+    /* adjust the flex for larger screens, have the boxes sit next to each other */
+
+    .results {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: baseline;
+        align-content: center;
+    }
 }
