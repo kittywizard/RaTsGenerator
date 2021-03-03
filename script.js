@@ -7,6 +7,7 @@ const resetBtn = document.getElementById('resetBtn');
 const toppingBtn = document.getElementById('toppings');
 const list = document.getElementById('pick-a-rat');
 const flavorAmount = document.querySelector(".flavors");
+const toppingResult = document.querySelector(".topping-results");
 
 let toppingList = document.createElement('select');
 
@@ -48,10 +49,8 @@ async function generateRaT() {
 
     try {
         resetBtn.classList.remove('hide');
-        // if(){
-        //     //need to check status of toppingBtn
-        //     toppingBtn.classList.remove('hide');
-        // }
+
+        if(toppingBtn.classList.contains('hide')){ toppingBtn.classList.remove('hide') }
 
         const promise = await fetch('local.json');
         const rats = await promise.json();
@@ -106,13 +105,12 @@ function getPrompts(rats) {
 }
    
 async function toppingTime() {
-    toppingBtn.classList.add('hide');
+    toppingBtn.classList.toggle('hide');
 
     try {
         const toppingPromise = await fetch('toppings.json');
         const toppingContent = await toppingPromise.json();
 
-        //creating drop down list
         toppingList.classList.add('dropdown');
         let containerDiv = document.createElement('div');
 
@@ -123,11 +121,18 @@ async function toppingTime() {
             toppingList.appendChild(toppingOption);
         });
 
-        //need to add in a div w/ dropdown list of toppings
+        //to do- 
+            // append this to somewhere else so it's not in the middle of the prompts - done
+            // fix the button so when you click it and the dropdown is already there, it does nothing
+            // ^^ fix the toggle maybe? so it doesn't turn back on every time ?
+
         containerDiv.appendChild(toppingList);
         containerDiv.appendChild(createButton());
 
-        resultDisplay.appendChild(containerDiv);
+        toppingResult.appendChild(containerDiv);
+
+        //add event listener to the dropdown button
+        //add ID to button? something unique to grab it for the listener
 
     } catch (err) {
         console.log(err);
@@ -137,7 +142,7 @@ async function toppingTime() {
 function createButton() {
             
     let btn = document.createElement('button');
-    btn.innerText = "Ok";
+    btn.innerText = "Ok"; //probably should make this a variable 
     btn.classList.add('sm-btn');
     return btn;
 }
