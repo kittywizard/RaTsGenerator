@@ -122,7 +122,6 @@ async function toppingTime() {
         });
 
         //to do- 
-            // append this to somewhere else so it's not in the middle of the prompts - done
             // fix the button so when you click it and the dropdown is already there, it does nothing
             // ^^ fix the toggle maybe? so it doesn't turn back on every time ?
 
@@ -132,6 +131,7 @@ async function toppingTime() {
         //so this isn't returning a valid value. oops
         const toppingDropdownBtn = document.getElementById('dropdown-btn');
         console.log(toppingDropdownBtn);
+        
         // toppingDropdownBtn.addEventListener('click', () => {
         //     //do stuff
         //     console.log("dropdown button was clicked");
@@ -140,7 +140,6 @@ async function toppingTime() {
         toppingResult.appendChild(containerDiv);
 
         //add event listener to the dropdown button
-        //add ID to button? something unique to grab it for the listener
 
     } catch (err) {
         console.log(err);
