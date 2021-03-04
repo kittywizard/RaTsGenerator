@@ -129,6 +129,14 @@ async function toppingTime() {
         containerDiv.appendChild(toppingList);
         containerDiv.appendChild(createButton());
 
+        //so this isn't returning a valid value. oops
+        const toppingDropdownBtn = document.getElementById('dropdown-btn');
+        console.log(toppingDropdownBtn);
+        // toppingDropdownBtn.addEventListener('click', () => {
+        //     //do stuff
+        //     console.log("dropdown button was clicked");
+        // });
+
         toppingResult.appendChild(containerDiv);
 
         //add event listener to the dropdown button
@@ -144,6 +152,7 @@ function createButton() {
     let btn = document.createElement('button');
     btn.innerText = "Ok"; //probably should make this a variable 
     btn.classList.add('sm-btn');
+    btn.id = "dropdown-btn"; //also should be a variable
     return btn;
 }
 
