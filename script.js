@@ -15,7 +15,7 @@ let reset = () => location.reload();
 
 btn.addEventListener('click', generateRaT);
 resetBtn.addEventListener('click', reset);
-toppingBtn.addEventListener('click', toppingTime);
+//toppingBtn.addEventListener('click', toppingTime);
 
 function getList() {
     fetch('local.json')
@@ -50,7 +50,7 @@ async function generateRaT() {
     try {
         resetBtn.classList.remove('hide');
 
-        if(toppingBtn.classList.contains('hide')){ toppingBtn.classList.remove('hide') }
+        //if(toppingBtn.classList.contains('hide')){ toppingBtn.classList.remove('hide') }
 
         const promise = await fetch('local.json');
         const rats = await promise.json();
@@ -104,47 +104,47 @@ function getPrompts(rats) {
 
 }
    
-async function toppingTime() {
-    toppingBtn.classList.toggle('hide');
+// async function toppingTime() {
+//     toppingBtn.classList.toggle('hide');
 
-    try {
-        const toppingPromise = await fetch('toppings.json');
-        const toppingContent = await toppingPromise.json();
+//     try {
+//         const toppingPromise = await fetch('toppings.json');
+//         const toppingContent = await toppingPromise.json();
 
-        toppingList.classList.add('dropdown');
-        let containerDiv = document.createElement('div');
+//         toppingList.classList.add('dropdown');
+//         let containerDiv = document.createElement('div');
 
-        //gather and add all toppings to the dropdown
-        toppingContent.forEach(topping => {
-            let toppingOption = document.createElement('option');
-            toppingOption.innerText = topping.topping;
-            toppingList.appendChild(toppingOption);
-        });
+//         //gather and add all toppings to the dropdown
+//         toppingContent.forEach(topping => {
+//             let toppingOption = document.createElement('option');
+//             toppingOption.innerText = topping.topping;
+//             toppingList.appendChild(toppingOption);
+//         });
 
-        //to do- 
-            // fix the button so when you click it and the dropdown is already there, it does nothing
-            // ^^ fix the toggle maybe? so it doesn't turn back on every time ?
+//         //to do- 
+//             // fix the button so when you click it and the dropdown is already there, it does nothing
+//             // ^^ fix the toggle maybe? so it doesn't turn back on every time ?
 
-        containerDiv.appendChild(toppingList);
-        containerDiv.appendChild(createButton());
+//         containerDiv.appendChild(toppingList);
+//         containerDiv.appendChild(createButton());
 
-        //so this isn't returning a valid value. oops
-        const toppingDropdownBtn = document.getElementById('dropdown-btn');
-        console.log(toppingDropdownBtn);
+//         //so this isn't returning a valid value. oops
+//         const toppingDropdownBtn = document.getElementById('dropdown-btn');
+//         console.log(toppingDropdownBtn);
         
-        // toppingDropdownBtn.addEventListener('click', () => {
-        //     //do stuff
-        //     console.log("dropdown button was clicked");
-        // });
+//         // toppingDropdownBtn.addEventListener('click', () => {
+//         //     //do stuff
+//         //     console.log("dropdown button was clicked");
+//         // });
 
-        toppingResult.appendChild(containerDiv);
+//         toppingResult.appendChild(containerDiv);
 
-        //add event listener to the dropdown button
+//         //add event listener to the dropdown button
 
-    } catch (err) {
-        console.log(err);
-    }
-}
+//     } catch (err) {
+//         console.log(err);
+//     }
+// }
 
 function createButton() {
             
