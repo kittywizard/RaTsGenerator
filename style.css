@@ -29,14 +29,14 @@ button {
     text-transform: uppercase;
     padding: 1rem;
     border-radius: 10px;
-    margin: 0.75em;
+    margin: 2em 0.75em; 
     font-family: 'Raleway', sans-serif;
 }
 
 button:hover, 
 button:focus {
-    background-color: rgba(135,181,127, 0.3);
-    color:  rgba(135,181,127,1);
+    background-color: rgba(135,181,127, 0.4);
+    color:  rgb(86, 117, 80);
     cursor: pointer;
 }
 
@@ -109,7 +109,7 @@ footer {
 }
 
 .footer-link:hover, .footer-link:focus, .link:hover {
-    color: rgb(40, 53, 37); /* new color */
+    color: rgb(86, 117, 80); /* new color */
 }
 
 .credits {
