@@ -103,67 +103,14 @@ function getPrompts(rats) {
     flavorDiv.appendChild(promptDiv);
 
 }
-   
-// async function toppingTime() {
-//     toppingBtn.classList.toggle('hide');
-
-//     try {
-//         const toppingPromise = await fetch('toppings.json');
-//         const toppingContent = await toppingPromise.json();
-
-//         toppingList.classList.add('dropdown');
-//         let containerDiv = document.createElement('div');
-
-//         //gather and add all toppings to the dropdown
-//         toppingContent.forEach(topping => {
-//             let toppingOption = document.createElement('option');
-//             toppingOption.innerText = topping.topping;
-//             toppingList.appendChild(toppingOption);
-//         });
-
-//         //to do- 
-//             // fix the button so when you click it and the dropdown is already there, it does nothing
-//             // ^^ fix the toggle maybe? so it doesn't turn back on every time ?
-
-//         containerDiv.appendChild(toppingList);
-//         containerDiv.appendChild(createButton());
-
-//         //so this isn't returning a valid value. oops
-//         const toppingDropdownBtn = document.getElementById('dropdown-btn');
-//         console.log(toppingDropdownBtn);
-        
-//         // toppingDropdownBtn.addEventListener('click', () => {
-//         //     //do stuff
-//         //     console.log("dropdown button was clicked");
-//         // });
-
-//         toppingResult.appendChild(containerDiv);
-
-//         //add event listener to the dropdown button
-
-//     } catch (err) {
-//         console.log(err);
-//     }
-// }
 
 function createButton() {
             
     let btn = document.createElement('button');
-    btn.innerText = "Ok"; //probably should make this a variable 
+    btn.innerText = "Ok"; 
     btn.classList.add('sm-btn');
-    btn.id = "dropdown-btn"; //also should be a variable
+    btn.id = "dropdown-btn";
     return btn;
 }
 
 let randomNum = (min, max) => random = Math.floor((Math.random() * (max - min + 1)) + min);
-
-//json template
-
-// {
-//     "flavor": "",
-//     "theme": "Romantic Bunnies",
-//     "color": "",
-//     "prompts": [
-
-//     ]
-// }
