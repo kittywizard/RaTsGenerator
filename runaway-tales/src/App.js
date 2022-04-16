@@ -2,8 +2,8 @@
 
 function App() {
   return (
-    <div className="App">
-      test
+    <div className="text-3xl font-bold">
+      this is silly
     </div>
   );
 }
