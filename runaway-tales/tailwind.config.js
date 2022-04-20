@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.js"],
   theme: {
     screens: {
       sm: '480px',
@@ -12,14 +12,14 @@ module.exports = {
       'purple': '#7e5bef',
       'pink': '#ff49db',
       'orange': '#ff7849',
-      'green': '#13ce66',
+      'green': 'rgba(135,181,127,1)',
       'yellow': '#ffc82c',
       'gray-dark': '#273444',
-      'gray': '#8492a6',
+      'gray': 'rgba(50,50,50,0.8)',
       'gray-light': '#d3dce6',
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
+      sans: ['Raleway', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
     extend: {
