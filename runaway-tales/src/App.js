@@ -1,10 +1,9 @@
-
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="md:flex content-evenly">
-      <h1 className="uppercase ">Runaway Tales</h1>
-      <p>test div</p>
+    <div className="container mx-auto">
+      <Header/>
     </div>
   );
 }

@@ -13,10 +13,10 @@ module.exports = {
       'pink': '#ff49db',
       'orange': '#ff7849',
       'green': 'rgba(135,181,127,1)',
-      'yellow': '#ffc82c',
+      'dark-green': 'rgb(106, 141, 110)',
       'gray-dark': '#273444',
       'gray': 'rgba(50,50,50,0.8)',
-      'gray-light': '#d3dce6',
+      'gray-green-light': 'rgba(228, 248, 229, 0.6)'
     },
     fontFamily: {
       sans: ['Raleway', 'sans-serif'],
