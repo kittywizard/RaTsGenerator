@@ -494,6 +494,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -511,20 +515,43 @@ Ensure the default browser behavior of the `hidden` attribute.
   align-items: center;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .justify-between {
   justify-content: space-between;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
+.bg-dark-green {
+  --tw-bg-opacity: 1;
+  background-color: rgb(106 141 110 / var(--tw-bg-opacity));
 }
 
 .bg-gray-green-light {
   background-color: rgba(228, 248, 229, 0.6);
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .p-6 {
   padding: 1.5rem;
 }
 
-.p-2 {
-  padding: 0.5rem;
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .text-2xl {
@@ -534,6 +561,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .font-bold {
   font-weight: 700;
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-dark-green {
@@ -553,6 +585,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* body {
     background-color: rgb(228, 248, 229);
 } */
+
+.hover\:bg-gray-green-light:hover {
+  background-color: rgba(228, 248, 229, 0.6);
+}
+
+.hover\:bg-green:hover {
+  background-color: rgba(135,181,127,1);
+}
 
 .hover\:text-dark-green:hover {
   --tw-text-opacity: 1;
