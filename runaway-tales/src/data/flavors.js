@@ -1,4 +1,4 @@
-[{
+export const flavorData = [{
     "flavor": "Vanilla",
     "theme": "Situational Bunnies",
     "color": "lightsalmon",

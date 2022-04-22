@@ -1,4 +1,4 @@
- [
+export const toppings = [
     {
         "topping": "Rainbow Sprinkles",
         "claim": "To claim, your piece must be about only minor characters."
