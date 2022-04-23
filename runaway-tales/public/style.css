@@ -541,7 +541,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .bg-gray-green-light {
-  background-color: rgba(228, 248, 229, 0.6);
+  background-color: rgba(228, 248, 229, 1);
 }
 
 .p-2 {
@@ -562,9 +562,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.5rem;
 }
 
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+.text-center {
+  text-align: center;
+}
+
+.font-serif {
+  font-family: Viaoda Libre, serif;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .text-2xl {
@@ -577,23 +585,23 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.75rem;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
 }
 
-.font-bold {
-  font-weight: 700;
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .text-dark-green {
@@ -605,6 +613,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgba(50,50,50,0.8);
 }
 
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .text-gray-dark {
   --tw-text-opacity: 1;
   color: rgb(39 52 68 / var(--tw-text-opacity));
@@ -613,6 +626,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* body {
     background-color: rgb(228, 248, 229);
 } */
+
+.hover\:border-b-black:hover {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.hover\:bg-gray-green-light:hover {
+  background-color: rgba(228, 248, 229, 1);
+}
 
 .hover\:bg-green:hover {
   background-color: rgba(135,181,127,1);

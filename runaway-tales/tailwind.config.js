@@ -16,13 +16,13 @@ module.exports = {
       'dark-green': 'rgb(106, 141, 110)',
       'gray-dark': '#273444',
       'gray': 'rgba(50,50,50,0.8)',
-      'gray-green-light': 'rgba(228, 248, 229, 0.6)',
+      'gray-green-light': 'rgba(228, 248, 229, 1)',
       'white': 'rgb(255,255,255)',
       'black': 'rgb(0,0,0)'
     },
     fontFamily: {
       sans: ['Raleway', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      serif: ['Viaoda Libre', 'serif'],
     },
     extend: {
       spacing: {

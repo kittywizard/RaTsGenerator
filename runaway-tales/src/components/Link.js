@@ -1,3 +1,4 @@
+
 export default function Link(props) {
 
     return (
@@ -7,8 +8,8 @@ export default function Link(props) {
                 target="_blank"
                 rel="noreferrer"
             >
-                {props.name}
             </a>
+            
         </li>
     )
 }

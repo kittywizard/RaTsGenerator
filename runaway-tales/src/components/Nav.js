@@ -1,34 +1,18 @@
-import Link from "./Link";
-import { nanoid } from "nanoid";
 
-export default function Nav(props) {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { brands } from '@fortawesome/fontawesome-svg-core/import.macro' 
 
-    const links = [
-        {
-            name: "Home",
-            href: "/index.html"
-        },
-        {
-            name: "Github",
-            href: "http://github.com/kittywizard/RaTsGenerator"
-        },
-        {
-            name: "Discord",
-            href: "#"
-        }
-    ];
 
-    const linkMap  = links.map(link => (
-        <Link 
-            name={link.name} 
-            href={link.href}
-            key={nanoid()}
-        />
-    ));
+export default function Nav() {
 
     return (
         <ul className="hidden md:flex items-center justify-between">
-            {linkMap}
+            <li>
+                <FontAwesomeIcon icon={brands('github')} />
+            </li>
+            <li>
+                <FontAwesomeIcon icon={brands('discord')} />
+            </li>
         </ul>
     )
 }
