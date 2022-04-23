@@ -16,20 +16,27 @@ export default function Main() {
         //generate random number
         let randomFlavorNum = Math.floor((Math.random() * (flavors.length - 0 + 1)) + 0);
         let randomPromptNum = Math.floor((Math.random() * (30 - 0 + 1)) + 0);
+
         let prompt = flavors[randomFlavorNum].prompts[randomPromptNum];
 
-        console.log(prompt)
+        let promptObj = {
+            prompt: prompt,
+            flavor: flavors[randomFlavorNum].flavor,
+            number: randomPromptNum,
+            promptType: flavors[randomFlavorNum].theme
+        }
+
         setChosenPrompts(prevState => {
             return [
                 ...prevState,
-                prompt
+                promptObj
             ]
         });
     }
 
     const promptMap = chosenPrompts.map(prompt => (
         <Prompt 
-            prompt={prompt}
+            data={prompt}
             key={nanoid()}
         />
     ))
