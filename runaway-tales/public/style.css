@@ -515,6 +515,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .items-center {
   align-items: center;
 }
@@ -589,10 +593,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* body {
     background-color: rgb(228, 248, 229);
 } */
-
-.hover\:bg-gray-green-light:hover {
-  background-color: rgba(228, 248, 229, 0.6);
-}
 
 .hover\:bg-green:hover {
   background-color: rgba(135,181,127,1);

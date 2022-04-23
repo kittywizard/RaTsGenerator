@@ -1,4 +1,5 @@
 import Link from "./Link";
+import { nanoid } from "nanoid";
 
 export default function Nav(props) {
 
@@ -18,7 +19,11 @@ export default function Nav(props) {
     ];
 
     const linkMap  = links.map(link => (
-        <Link name={link.name} href={link.href}/>
+        <Link 
+            name={link.name} 
+            href={link.href}
+            key={nanoid()}
+        />
     ));
 
     return (
