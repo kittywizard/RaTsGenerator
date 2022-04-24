@@ -17,7 +17,7 @@ function useGenerator() {
         //if user hasn't selected anything from the dropdown
         if(dropdownState.theme === "") {
             let randomFlavorNum = Math.floor((Math.random() * (flavors.length - 0 + 1)) + 0);
-            let randomPromptNum = Math.floor((Math.random() * (30 - 0 + 1)) + 0);
+            let randomPromptNum = Math.floor((Math.random() * (flavors[randomFlavorNum].prompts.length - 0 + 1)) + 0);
     
             let prompt = flavors[randomFlavorNum].prompts[randomPromptNum];
     
